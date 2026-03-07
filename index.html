@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tirth Patel | Interactive Linux Shell</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="background-grid"></div>
+
+    <header class="navbar">
+        <div class="logo"><span class="prompt-icon">>_</span> ~/tirth.dev</div>
+        <nav>
+            <a href="javascript:void(0)" onclick="openSection('whoami')">/ whoami</a>
+            <a href="javascript:void(0)" onclick="openSection('skills')">/ skills</a>
+            <a href="javascript:void(0)" onclick="openSection('projects')">/ projects</a>
+            <a href="javascript:void(0)" onclick="openSection('experience')">/ experience</a>
+        </nav>
+    </header>
+
+    <main class="desktop-env">
+        <!-- Spawned Windows Container -->
+        <div id="window-container" class="window-container"></div>
+
+        <!-- Main Interactive Terminal -->
+        <div class="main-terminal terminal-window" id="main-terminal">
+            <div class="terminal-header" id="main-terminal-header">
+                <div class="header-buttons">
+                    <span class="btn red"></span>
+                    <span class="btn yellow"></span>
+                    <span class="btn green"></span>
+                </div>
+                <div class="header-title">tirth@linux: ~ (interative)</div>
+            </div>
+            <div class="terminal-body" id="main-terminal-body">
+                <div id="terminal-history">
+                    <div class="output">Welcome to Tirth's interactive shell. <br>Type a section name or 'help' to
+                        begin.</div>
+                </div>
+                <div class="input-line">
+                    <span class="prompt"><span class="user">tirth@linux</span>:<span class="path">~</span>$ </span>
+                    <div class="input-wrapper">
+                        <input type="text" id="terminal-input" autofocus spellcheck="false" autocomplete="off">
+                        <span id="ghost-text" class="ghost-text"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <section class="social-links">
+        <a href="https://github.com/tirthpatel90" target="_blank" class="social-btn"><i class="fab fa-github"></i>
+            github</a>
+        <a href="https://www.linkedin.com/in/tirth-patel-3bbb30288" target="_blank" class="social-btn"><i
+                class="fab fa-linkedin"></i> linkedin</a>
+        <a href="mailto:tirthpatel5393@gmail.com" class="social-btn"><i class="fas fa-envelope"></i> email</a>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
