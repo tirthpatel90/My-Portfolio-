@@ -43,6 +43,7 @@ const sections = {
 ├── <span class="highlight">Cloud/DevOps</span>
 │   ├── AWS
 │   ├── Azure
+│   ├── Kubernetes
 │   ├── CI/CD
 │   └── Oracle
 ├── <span class="highlight">Databases</span>
@@ -149,7 +150,7 @@ const sections = {
     }
 };
 
-const commands = ['whoami', 'skills', 'projects', 'experience', 'connect', 'help', 'clear', 'ls'];
+const commands = ['whoami', 'skills', 'projects', 'experience', 'connect', 'resume', 'help', 'clear', 'ls'];
 
 // Input Handling
 // Initial cursor state
@@ -192,6 +193,12 @@ function executeCommand(cmd) {
 
     if (sections[cmd]) {
         openSection(cmd);
+    } else if (cmd === 'resume') {
+        const output = document.createElement('div');
+        output.className = 'output';
+        output.innerHTML = `<span class="highlight">Opening Resume.pdf...</span>`;
+        termHistory.appendChild(output);
+        window.open('Resume.pdf', '_blank');
     } else if (cmd === 'clear') {
         termHistory.innerHTML = '';
     } else if (cmd === 'help' || cmd === 'ls') {
