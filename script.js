@@ -128,11 +128,11 @@ const sections = {
             <form id="connect-form" class="contact-form" action="https://formspree.io/f/xojkvlba" method="POST">
                 <div class="form-group">
                     <label for="full-name">Name</label>
-                    <input type="text" id="full-name" name="name" placeholder="John Doe" required spellcheck="false">
+                    <input type="text" id="full-name" name="name" placeholder="Your name" required spellcheck="false">
                 </div>
                 <div class="form-group">
                     <label for="email-addr">Email</label>
-                    <input type="email" id="email-addr" name="email" placeholder="john@example.com" required spellcheck="false" 
+                    <input type="email" id="email-addr" name="email" placeholder="name@gmail.com" required spellcheck="false" 
                            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}" 
                            title="Please enter a valid email address (e.g. user@gmail.com)">
                 </div>
