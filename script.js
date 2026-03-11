@@ -232,8 +232,9 @@ function openSection(slug) {
     const win = document.createElement('div');
     win.className = 'terminal-window spawned-window';
     win.id = `window-${slug}`;
-    win.style.left = `${50 + Math.random() * 100}px`;
-    win.style.top = `${50 + Math.random() * 100}px`;
+    const isMobile = window.innerWidth <= 768;
+    win.style.left = isMobile ? '5%' : `${50 + Math.random() * 100}px`;
+    win.style.top = isMobile ? '10%' : `${50 + Math.random() * 100}px`;
     win.style.zIndex = getTopZIndex() + 1;
 
     win.innerHTML = `
@@ -368,15 +369,23 @@ function makeDraggable(el) {
         document.onmouseup = closeDragElement;
         document.onmousemove = elementDrag;
 
+        // Touch events
+        document.ontouchend = closeDragElement;
+        document.ontouchmove = elementDrag;
+
         focusWindow(el.id.replace('window-', ''));
     }
 
+    header.ontouchstart = dragMouseDown;
+
     function elementDrag(e) {
-        e.preventDefault();
-        pos1 = pos3 - e.clientX;
-        pos2 = pos4 - e.clientY;
-        pos3 = e.clientX;
-        pos4 = e.clientY;
+        const clientX = e.type === 'touchmove' ? e.touches[0].clientX : e.clientX;
+        const clientY = e.type === 'touchmove' ? e.touches[0].clientY : e.clientY;
+
+        pos1 = pos3 - clientX;
+        pos2 = pos4 - clientY;
+        pos3 = clientX;
+        pos4 = clientY;
 
         // Only drag if not maximized
         if (!el.classList.contains('maximized')) {
@@ -388,6 +397,8 @@ function makeDraggable(el) {
     function closeDragElement() {
         document.onmouseup = null;
         document.onmousemove = null;
+        document.ontouchend = null;
+        document.ontouchmove = null;
 
         // Re-enable transition after drag
         el.style.transition = '';
