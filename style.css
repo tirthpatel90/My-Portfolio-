@@ -615,3 +615,80 @@ body.booted .desktop-env,
 body.booted .social-links {
     opacity: 1;
 }
+
+/* Mobile Responsiveness Overrides */
+@media (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+        overflow-y: auto;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .navbar {
+        padding: 1rem;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .navbar nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    nav a {
+        margin-left: 0;
+        font-size: 0.8rem;
+    }
+
+    .desktop-env {
+        padding: 120px 10px 80px;
+        align-items: flex-start;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .main-terminal {
+        width: 95vw;
+        height: auto;
+        min-height: 300px;
+    }
+
+    .terminal-window {
+        min-width: unset;
+        width: 90vw;
+    }
+
+    .spawned-window {
+        width: 90vw;
+        height: auto;
+        max-height: 80vh;
+    }
+
+    .terminal-body {
+        max-height: 60vh;
+        padding: 15px;
+    }
+
+    .tree-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .social-links {
+        position: relative;
+        bottom: unset;
+        right: unset;
+        justify-content: center;
+        padding: 20px 0;
+        width: 100%;
+    }
+
+    .social-btn {
+        font-size: 0.7rem;
+        padding: 0 10px;
+    }
+}
