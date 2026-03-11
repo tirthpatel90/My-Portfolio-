@@ -16,4 +16,4 @@ A premium, Linux-style interactive portfolio featuring a draggable window system
 - **Form Handling**: Formspree API
 
 ## 🚀 Quick Start
- link: https://tirthdev.vercel.app/
+ link: https://tirthdev-portfolio.vercel.app/
