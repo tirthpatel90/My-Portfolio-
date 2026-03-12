@@ -233,8 +233,13 @@ function openSection(slug) {
     win.className = 'terminal-window spawned-window';
     win.id = `window-${slug}`;
     const isMobile = window.innerWidth <= 768;
-    win.style.left = isMobile ? '5%' : `${50 + Math.random() * 100}px`;
-    win.style.top = isMobile ? '10%' : `${50 + Math.random() * 100}px`;
+    if (isMobile) {
+        win.style.left = '0px';
+        win.style.top = '0px';
+    } else {
+        win.style.left = `${50 + Math.random() * 100}px`;
+        win.style.top = `${50 + Math.random() * 100}px`;
+    }
     win.style.zIndex = getTopZIndex() + 1;
 
     win.innerHTML = `
