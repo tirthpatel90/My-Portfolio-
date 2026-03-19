@@ -3,6 +3,9 @@ const ghostText = document.getElementById('ghost-text');
 const termHistory = document.getElementById('terminal-history');
 const windowContainer = document.getElementById('window-container');
 
+let commandHistory = [];
+let historyIndex = -1;
+
 const sections = {
     whoami: {
         title: "About Section",
@@ -160,9 +163,39 @@ updateCursor();
 termInput.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') {
         const cmd = termInput.value.toLowerCase() || ghostText.innerText;
+        
+        if (cmd && cmd.trim()) {
+            // Add to history if not empty and not the same as last command
+            if (commandHistory[commandHistory.length - 1] !== cmd) {
+                commandHistory.push(cmd);
+            }
+            historyIndex = commandHistory.length;
+        }
+        
         executeCommand(cmd);
         termInput.value = '';
         ghostText.innerText = '';
+    } else if (e.key === 'ArrowUp') {
+        if (commandHistory.length > 0) {
+            e.preventDefault();
+            if (historyIndex > 0) {
+                historyIndex--;
+            }
+            termInput.value = commandHistory[historyIndex];
+            updateCursor();
+        }
+    } else if (e.key === 'ArrowDown') {
+        if (commandHistory.length > 0) {
+            e.preventDefault();
+            if (historyIndex < commandHistory.length - 1) {
+                historyIndex++;
+                termInput.value = commandHistory[historyIndex];
+            } else {
+                historyIndex = commandHistory.length;
+                termInput.value = '';
+            }
+            updateCursor();
+        }
     }
 });
 
