@@ -32,10 +32,11 @@ const CONFIG = {
         name: "Tirth Patel",
         pfp: "profile.jpg", // path or url to profile picture
         pfpFallback: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=300&q=80",
-        titleRole: "DevOps & Cloud Systems Engineer",
+        titleRole: "DevOps & Cloud Systems Engineer | Open Source Contributor",
         bioParagraphs: [
             "Information Technology student at LDRP Institute of Technology and Research.",
-            "Interested in Cloud Architectures, DevOps CI/CD automation, and virtualization sandboxes."
+            "Interested in Cloud Architectures, DevOps CI/CD automation, and virtualization sandboxes.",
+            "Active open-source contributor focusing on CI/CD pipelines, container automation, and build toolchains."
         ],
         learningAndInterests: [
             "Currently learning AWS services, Docker containers, automated pipelines, and system architectures.",
@@ -58,15 +59,16 @@ const CONFIG = {
 │   ├── Python
 │   ├── C/C++
 │   └── SQL
-├── Frameworks
-│   ├── React
-│   ├── Node.js
-│   └── Flask
-├── Tools
-│   ├── Docker
-│   ├── Git/Github
-│   ├── Postman
-│   └── Github Actions
+├── Databases
+│   ├── PostgreSQL
+│   ├── MySQL
+│   ├── SQLite
+│   └── Firebase
+└── Tools
+    ├── Docker
+    ├── Git/Github
+    ├── Postman
+    └── Github Actions
 `,
         // Column 2 tree view layout
         treeCol2: `
@@ -76,11 +78,6 @@ const CONFIG = {
 │   ├── Kubernetes
 │   ├── CI/CD
 │   └── Oracle
-├── Databases
-│   ├── PostgreSQL
-│   ├── MySQL
-│   ├── SQLite
-│   └── Firebase
 ├── Core Concepts
 │   ├── Linux Fundamentals
 │   ├── Networking Basics
@@ -100,6 +97,17 @@ const CONFIG = {
     // ==========================================
     projectsSectionTitle: "Deployment Log: Projects",
     projects: [
+        {
+            name: "Zedda (Python Library)",
+            url: "https://github.com/Zedda-Labs/Zedda",
+            timeline: "Ongoing",
+            description: [
+                "Developed a high-performance Python EDA (Exploratory Data Analysis) and data-cleaning library powered by a C++17 core, enabling constant-memory dataset profiling at terabyte scale.",
+                "Designed and automated multi-platform native wheel compilation pipelines using GitHub Actions Matrix and cibuildwheel to publish optimized binaries to PyPI.",
+                "Implemented containerized integration tests using Docker to validate data quality diagnostics and file formats (CSV, Parquet, Arrow) across multiple architectures."
+            ],
+            stack: "C++17, Python, Apache Arrow, Docker, GitHub Actions (CI/CD), cibuildwheel, CMake"
+        },
         {
             name: "Data Agnostic MLOps Pipeline",
             url: "https://github.com/tirthpatel90/Data-agnostic-MLOps-pipeline",
@@ -166,6 +174,18 @@ const CONFIG = {
     // ==========================================
     contributionsSectionTitle: "Changelog: Open Source Contributions",
     contributions: [
+        {
+            project: "NVIDIA / cuda-python",
+            projectUrl: "https://github.com/NVIDIA/cuda-python",
+            role: "Open Source Contributor",
+            prUrl: "https://github.com/NVIDIA/cuda-python/pull/2411",
+            timeline: "Recent",
+            highlights: [
+                "<strong>CI/CD Optimization:</strong> Streamlined build-wheel and testing workflows (for both Linux and Windows) for Python 3.15 compatibility.",
+                "<strong>Pipeline Refactoring:</strong> Removed custom, redundant NumPy compilation steps by transitioning build workflows to natively leverage Python 3.15 beta 4.",
+                "<strong>Dependency Resolution:</strong> Resolved environment discrepancies and improved build reliability across Python 3.15 CI testing matrices."
+            ]
+        },
         {
             project: "Serena",
             projectUrl: "https://github.com/oraios/serena",
